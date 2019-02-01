@@ -1,0 +1,7 @@
+D:\.NetProjects\LinqTasks\12obj\12obj\obj\Debug\12obj.csprojAssemblyReference.cache
+D:\.NetProjects\LinqTasks\12obj\12obj\obj\Debug\12obj.csproj.CoreCompileInputs.cache
+D:\.NetProjects\LinqTasks\12obj\12obj\bin\Debug\12obj.exe.config
+D:\.NetProjects\LinqTasks\12obj\12obj\bin\Debug\12obj.exe
+D:\.NetProjects\LinqTasks\12obj\12obj\bin\Debug\12obj.pdb
+D:\.NetProjects\LinqTasks\12obj\12obj\obj\Debug\12obj.exe
+D:\.NetProjects\LinqTasks\12obj\12obj\obj\Debug\12obj.pdb
