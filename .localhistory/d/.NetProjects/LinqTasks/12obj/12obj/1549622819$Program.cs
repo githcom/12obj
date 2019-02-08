@@ -48,17 +48,15 @@ namespace _12obj
                 Console.WriteLine(VARIABLE);
             }
 
-            var res11 = res1.GroupBy(e => (e.elem.flat + 1) / 4, (k, g) => g.Select((r => r.elem)));
+            var res11 = res1.GroupBy(e => e.index / 4, (k, g) => g.Select((r => r.elem)));
             Console.WriteLine("");
 
             foreach (var VARIABLE in res11)
             {
                 foreach (var w in VARIABLE)
                 {
-                    Console.WriteLine(w.flat + " " + w.debt);
+                    Console.WriteLine(w.flat + w.debt);
                 }
-
-                Console.WriteLine("-----");
             }
 
             var res2 = res.Where(e => e.flat > 36 && e.flat <= 72).Select(e => new { entr = 2, debt = e.debt })

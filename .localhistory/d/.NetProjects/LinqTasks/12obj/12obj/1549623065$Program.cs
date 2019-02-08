@@ -48,7 +48,7 @@ namespace _12obj
                 Console.WriteLine(VARIABLE);
             }
 
-            var res11 = res1.GroupBy(e => (e.elem.flat + 1) / 4, (k, g) => g.Select((r => r.elem)));
+            var res11 = res1.GroupBy(e => e.elem.flat / 4, (k, g) => g.Select((r => r.elem)));
             Console.WriteLine("");
 
             foreach (var VARIABLE in res11)
