@@ -176,12 +176,12 @@ namespace _12obj
             Console.WriteLine("");
 
             //var res5 = res113.GroupJoin(res213, q => q.floor, w => w.floor, (a1, a2) => new { floor = a1.floor, debt1 = a1.debt.DefaultIfEmpty().Select(r => r).DefaultIfEmpty()/*, debt2 = a2.Select(t => t.debt) */})/*.Select(e => e.floor)*//*.Select(e => e.)*/ .SelectMany(e => e.debt1, (ee, d) => ee.floor + " " + (d != 0f ? d : 0f));
-            var res5 = res113.Join(res213, q => q.floor, w => w.floor, (a1, s2) => new { floor = a1.floor, debt = a1.debt.DefaultIfEmpty()/*.Concat(s2.debt.DefaultIfEmpty())*/}) /*.Select(r => r.floor)*/  /*.SelectMany(e => e.debt, (q, w) => q.floor + " " + w)*/;
+            var res5 = res113.Join(res213, q => q.floor, w => w.floor, (a1, s2) => new { floor = a1.floor, debt = a1.debt.DefaultIfEmpty()/*.Concat(s2.debt.DefaultIfEmpty())*/}) /*.Select(r => r.floor)*/  .SelectMany(e => e.debt, (q, w) => q.floor + " " + w);
             //var res6 = res113.Join(res213, q => q.floor, w => w.floor,
             //    (q, w) => new {floor = w.floor/*, debt = a1.debt.DefaultIfEmpty()*/ /*.Concat(a2.Select(t => t.debt))*/}).Select(e => e.floor)/*SelectMany(e => e.debt, (ee, d) => (ee.floor != 0 ? ee.floor : 0) + " " + (d != 0f ? d : 0f))*/;
 
 
-            bool y = res5.GetEnumerator().Current == null;
+            bool y = res5 != null;
             int qq = res5.Count();
             bool rr = res5.Count() > 0;
 

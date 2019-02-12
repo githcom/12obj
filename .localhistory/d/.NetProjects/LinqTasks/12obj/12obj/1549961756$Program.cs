@@ -51,7 +51,7 @@ namespace _12obj
             int floor1 = 0;
 
             var res113 = res112.GroupBy(e => (e.flat - 1) / 4,
-                (k, g) => new { /*floor = ++floor1,*/ flatAll = g.Select(r => r.flat), elem = g.Select(r => r.e), flat = g.Select(r => r.e.flat), debt = g.DefaultIfEmpty().Select(r => r.e.debt).DefaultIfEmpty() }).Select((e, i) => new { floor = i + 1, flatAll = e.flatAll.DefaultIfEmpty(), elem = e.elem.DefaultIfEmpty(), flat = e.flat.DefaultIfEmpty(), debt = e.debt.DefaultIfEmpty() }).ToList();
+                (k, g) => new { floor = ++floor1, flatAll = g.Select(r => r.flat), elem = g.Select(r => r.e), flat = g.Select(r => r.e.flat), debt = g.Select(r => r.e.debt) });
 
             Console.WriteLine("res1");
 
@@ -83,7 +83,7 @@ namespace _12obj
             int floor2 = 0;
 
             var res213 = res212.GroupBy(e => (e.flat - 1) / 4,
-                (k, g) => new { /*floor = ++floor2,*/ flatAll = g.Select(r => r.flat), elem = g.Select(r => r.e), flat = g.Select(r => r.e.flat), debt = g.Select(r => r.e.debt).DefaultIfEmpty() }).Select((e, i) => new { floor = i + 1, flatAll = e.flatAll, elem = e.elem, flat = e.flat, debt = e.debt}).ToList();
+                (k, g) => new { floor = ++floor2, flatAll = g.Select(r => r.flat), elem = g.Select(r => r.e), flat = g.Select(r => r.e.flat), debt = g.Select(r => r.e.debt) });
 
 
             Console.WriteLine("res2");
@@ -107,67 +107,67 @@ namespace _12obj
 
             //////////////////////////////////////////////////
 
-            var res3 = res.Where(e => e.flat > 72 && e.flat <= 108);
+            //var res3 = res.Where(e => e.flat > 72 && e.flat <= 108);
 
-            var res33 = Enumerable.Range(73, 36);
+            //var res33 = Enumerable.Range(73, 36);
 
-            var res312 = res33.GroupJoin(res3, r => r, e => e.flat, (r, e) => e.DefaultIfEmpty().Select(t => new { flat = r, e = t })).SelectMany(e => e);
+            //var res312 = res33.GroupJoin(res3, r => r, e => e.flat, (r, e) => e.DefaultIfEmpty().Select(t => new { flat = r, e = t })).SelectMany(e => e);
 
-            int floor3 = 0;
+            //int floor3 = 0;
 
-            var res313 = res312.GroupBy(e => (e.flat - 1) / 4,
-                (k, g) => new { /*floor = ++floor3,*/ flatAll = g.Select(r => r.flat), elem = g.Select(r => r.e), flat = g.Select(r => r.e.flat), debt = g.Select(r => r.e.debt) }).Select((e, i) => new { floor = i + 1, flatAll = e.flatAll, elem = e.elem, flat = e.flat, debt = e.debt });
+            //var res313 = res312.GroupBy(e => (e.flat - 1) / 4,
+            //    (k, g) => new { floor = ++floor3, flatAll = g.Select(r => r.flat), elem = g.Select(r => r.e), flat = g.Select(r => r.e.flat), debt = g.Select(r => r.e.debt) });
 
 
-            Console.WriteLine("res3");
+            //Console.WriteLine("res3");
 
-            foreach (var q in res313)
-            {
-                Console.Write("Floor - " + q.floor + ", ");
-                for (int i = 0; i < q.elem.Count(); i++)
-                {
-                    if (q.elem.ElementAt(i) != null && q.elem.ElementAt(i).flat != 0 && q.elem.ElementAt(i).debt != ((float)0))
-                    {
-                        Console.WriteLine("");
-                        Console.Write("__________flat - " + q.elem.ElementAt(i).flat + ", debt - " + q.elem.ElementAt(i).debt + ", ");
-                    }
-                }
-                Console.WriteLine("");
-            }
+            //foreach (var q in res313)
+            //{
+            //    Console.Write("Floor - " + q.floor + ", ");
+            //    for (int i = 0; i < q.elem.Count(); i++)
+            //    {
+            //        if (q.elem.ElementAt(i) != null && q.elem.ElementAt(i).flat != 0 && q.elem.ElementAt(i).debt != ((float)0))
+            //        {
+            //            Console.WriteLine("");
+            //            Console.Write("__________flat - " + q.elem.ElementAt(i).flat + ", debt - " + q.elem.ElementAt(i).debt + ", ");
+            //        }
+            //    }
+            //    Console.WriteLine("");
+            //}
 
-            Console.WriteLine(new string('_', 50));
+            //Console.WriteLine(new string('_', 50));
 
 
             //////////////////////////////////////////////////
 
-            var res4 = res.Where(e => e.flat > 108 && e.flat <= 144);
+            //var res4 = res.Where(e => e.flat > 108 && e.flat <= 144);
 
-            var res44 = Enumerable.Range(109, 36);
+            //var res44 = Enumerable.Range(109, 36);
 
-            var res412 = res44.GroupJoin(res4, r => r, e => e.flat, (r, e) => e.DefaultIfEmpty().Select(t => new { flat = r, e = t })).SelectMany(e => e);
+            //var res412 = res44.GroupJoin(res4, r => r, e => e.flat, (r, e) => e.DefaultIfEmpty().Select(t => new { flat = r, e = t })).SelectMany(e => e);
 
-            int floor4 = 0;
+            //int floor4 = 0;
 
-            var res413 = res412.GroupBy(e => (e.flat - 1) / 4,
-                (k, g) => new { /*floor = ++floor4,*/ flatAll = g.Select(r => r.flat), elem = g.Select(r => r.e), flat = g.Select(r => r.e.flat), debt = g.Select(r => r.e.debt) }).Select((e, i) => new { floor = i + 1, flatAll = e.flatAll, elem = e.elem, flat = e.flat, debt = e.debt });
+            //var res413 = res412.GroupBy(e => (e.flat - 1) / 4,
+            //    (k, g) => new { floor = ++floor4, flatAll = g.Select(r => r.flat), elem = g.Select(r => r.e), flat = g.Select(r => r.e.flat), debt = g.Select(r => r.e.debt) });
 
-            Console.WriteLine("res4");
+            //Console.WriteLine("res4");
 
-            foreach (var q in res413)
-            {
-                Console.Write("Floor - " + q.floor + ", ");
-                for (int i = 0; i < q.elem.Count(); i++)
-                {
-                    if (q.elem.ElementAt(i) != null && q.elem.ElementAt(i).flat != 0 && q.elem.ElementAt(i).debt != 0f)
-                    {
-                        Console.WriteLine("");
-                        Console.Write("__________flat - " + q.elem.ElementAt(i).flat + ", debt - " + q.elem.ElementAt(i).debt + ", ");
-                    }
-                }
-                Console.WriteLine("");
-            }
+            //foreach (var q in res413)
+            //{
+            //    Console.Write("Floor - " + q.floor + ", ");
+            //    for (int i = 0; i < q.elem.Count(); i++)
+            //    {
+            //        if (q.elem.ElementAt(i) != null && q.elem.ElementAt(i).flat != 0 && q.elem.ElementAt(i).debt != 0f)
+            //        {
+            //            Console.WriteLine("");
+            //            Console.Write("__________flat - " + q.elem.ElementAt(i).flat + ", debt - " + q.elem.ElementAt(i).debt + ", ");
+            //        }
+            //    }
+            //    Console.WriteLine("");
+            //}
 
-            Console.WriteLine(new string('_', 50));
+            //Console.WriteLine(new string('_', 50));
 
             //////////////////////////////////////////////////
 
@@ -175,49 +175,31 @@ namespace _12obj
             Console.WriteLine(new string('-', 50));
             Console.WriteLine("");
 
-            //var res5 = res113.GroupJoin(res213, q => q.floor, w => w.floor, (a1, a2) => new { floor = a1.floor, debt1 = a1.debt.DefaultIfEmpty().Select(r => r).DefaultIfEmpty()/*, debt2 = a2.Select(t => t.debt) */})/*.Select(e => e.floor)*//*.Select(e => e.)*/ .SelectMany(e => e.debt1, (ee, d) => ee.floor + " " + (d != 0f ? d : 0f));
-            var res5 = res113.Join(res213, q => q.floor, w => w.floor, (a1, s2) => new { floor = a1.floor, debt = a1.debt.DefaultIfEmpty()/*.Concat(s2.debt.DefaultIfEmpty())*/}) /*.Select(r => r.floor)*/  /*.SelectMany(e => e.debt, (q, w) => q.floor + " " + w)*/;
-            //var res6 = res113.Join(res213, q => q.floor, w => w.floor,
-            //    (q, w) => new {floor = w.floor/*, debt = a1.debt.DefaultIfEmpty()*/ /*.Concat(a2.Select(t => t.debt))*/}).Select(e => e.floor)/*SelectMany(e => e.debt, (ee, d) => (ee.floor != 0 ? ee.floor : 0) + " " + (d != 0f ? d : 0f))*/;
+            //var res5 = res113.GroupJoin(res213, q => q.floor, w => w.floor, (q, w) => new { floor = q.floor, debt1 = q.elem.Select(r => r.debt), debt2 = w.Select(t => t.debt) });
+            var res5 = res113.Join(res213, q => q.floor, w => w.floor, (q, w) => new { floor = w.floor, debt1 = q.debt/*.Concat(w.debt).DefaultIfEmpty()*/, /*q.elem.Select(r => r.debt)*/  });
 
-
-            bool y = res5.GetEnumerator().Current == null;
-            int qq = res5.Count();
-            bool rr = res5.Count() > 0;
-
-
-
-            if (res5 != null && res5.Count() > 0)
+            foreach (var q in res5)
             {
-                
-                foreach (var q in res5)
+                Console.WriteLine(q.floor);
+                //foreach (var w in q.debt1)
+                //{
+                //    Console.WriteLine(w);
+                //}
+
+
+                if (q.debt1 != null && q.debt1.Count() > 0)
                 {
-                    if (q != null)
+                    for (int i = 0; i < q.debt1.Count(); i++)
                     {
-                        Console.WriteLine(q/*.floor*/);
+                        if (q.debt1.ElementAt(i) != null)
+                        {
+                            Console.WriteLine(q.debt1.ElementAt(i));
+                        }
+
                     }
-
-                    //foreach (var w in q.debt1)
-                    //{
-                    //    Console.WriteLine(w);
-                    //}
-
-
-                    //if (q.debt1 != null && q.debt1.Count() > 0)
-                    //{
-                    //    for (int i = 0; i < q.debt1.Count(); i++)
-                    //    {
-                    //        if (q.debt1.ElementAt(i) != null)
-                    //        {
-                    //            Console.WriteLine(q.debt1.ElementAt(i));
-                    //        }
-
-                    //    }
-                    //}
-
                 }
+
             }
-            
 
 
 
